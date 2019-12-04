@@ -21,6 +21,54 @@ message CreateResponse {
   int64 id = 2;
 }
 
+message ReadRequest {
+  string api = 1;
+  int64 id = 2;
+}
+
+message ReadResponse {
+  string api = 1;
+  Todo todo = 2;
+}
+
+message UpdateRequest {
+  string api = 1;
+  Todo todo = 2;
+}
+
+message UpdateResponse {
+  string api = 1;
+  int64 updated = 2;
+}
+
+message DeleteRequest {
+  string api = 1;
+  int64 id = 2;
+}
+
+message DeleteResponse {
+  string api = 1;
+  int64 deleted = 2;
+}
+
+
+message ReadAllRequest {
+  string api = 1;
+}
+
+message ReadAllResponse {
+  string api = 1;
+  repeated Todo todos = 2;
+}
+
 service TodoService {
   rpc Create(CreateRequest) returns (CreateResponse);
+
+  rpc Read (ReadRequest) returns (ReadResponse);
+
+  rpc Update (UpdateRequest) returns (UpdateResponse);
+
+  rpc Delete (DeleteRequest) returns (DeleteResponse);
+
+  rpc ReadAll (ReadAllRequest) returns (ReadAllResponse);
 }
