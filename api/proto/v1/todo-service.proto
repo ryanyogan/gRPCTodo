@@ -7,13 +7,13 @@ message Todo {
   int64 id = 1;
   string title = 2;
   string description = 3;
-  
+
   google.protobuf.Timestamp reminder = 4;
 }
 
 message CreateRequest {
   string api = 1;
-  ToDo toDo = 2;
+  Todo todo = 2;
 }
 
 message CreateResponse {
@@ -22,5 +22,5 @@ message CreateResponse {
 }
 
 service TodoService {
-  rpc Create (CreateRequest) returns (CreateResponse);
+  rpc Create(CreateRequest) returns (CreateResponse);
 }
